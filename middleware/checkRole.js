@@ -12,3 +12,10 @@ exports.checkTeacher = (req, res, next) => {
         res.json({dsc: 'No authorization on this page'})
     }
 }
+exports.checkStudent = (req, res, next) => {
+    if(req.ucer.status == 'student'){
+        next();
+    }else{
+        res.json({dsc: 'No authorization on this page'})
+    }
+}

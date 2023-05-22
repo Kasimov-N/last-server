@@ -24,12 +24,17 @@ app.use(express.urlencoded({ extended: true}));
 
 //routes 
 app.use('/', require('./routes/index'))
+app.use('/auth', require('./routes/auth') )
+//admin
 app.use('/admin', require('./routes/admin'))
 app.use('/admin/teachers', require('./routes/teachers'))
 app.use('/admin/students', require('./routes/students'))
 app.use('/admin/groups', require('./routes/groups'))
+//teacher
 app.use('/Teacher', require('./routes/teacherRoute'))
-app.use('/auth', require('./routes/auth') )
+//student
+app.use('/Student', require('./routes/studentRoute'))
+
 
 
 //PORT

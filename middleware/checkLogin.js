@@ -1,6 +1,6 @@
 exports.checkLogin = async(req, res, next)=> {
-    const {login, password} = req.body;
-    if(login && password){
+    const {email, password} = req.body;
+    if(email && password){
         next()
     }else{
         res.json({title: 'Pasword  or login not found'} )

@@ -1,3 +1,3 @@
 exports.index = (req, res) => {
-    res.json('Teacher!')
+    res.json('Hello world!')
 }

@@ -9,14 +9,30 @@ module.exports = model('student', new Schema({
         mother: Number,
         father: Number
     },
+    status: {
+        type: String,
+        default: 'student'
+    },
     password: String,
-    totalScore: String,
+    totalScore: {
+        type: Number,
+        default: 0
+    },
     attendance: [
         {
-            status: Boolean,
-            date: Date,
+            status: {
+                type: Boolean,
+                default: false
+            },
+            date: {
+                type: Date,
+                default: Date.now()
+            },
             reason: String,
-            score: Number
+            score: {
+                type: Number,
+                default: 0
+            }
         }
     ]
 },  { timestamps: true }))

@@ -22,7 +22,7 @@ exports.show = async (req, res) => {
 }
 exports.create = (req, res) => {
     let { firstName, lastName, email, phoneNumber, ParentsPhoneNumber, password } = req.body
-    if (firstName && lastName && email && phoneNumber || ParentsPhoneNumber && password) {
+    if (firstName && lastName && email && phoneNumber && ParentsPhoneNumber && password) {
         let student = new Students({
             firstName,
             lastName,
