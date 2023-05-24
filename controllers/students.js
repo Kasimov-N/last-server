@@ -1,5 +1,5 @@
-const Students = require("../models/Students")
-const Teachers = require("../models/Teachers")
+const Students = require("../models/Ucer")
+const Teachers = require("../models/Ucer")
 
 exports.index = async (req, res) => {
     const data = await Students.find({})

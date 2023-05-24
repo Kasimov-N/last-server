@@ -1,5 +1,5 @@
-const Students = require('../models/Students')
-const Teachers = require('../models/Teachers')
+const Students = require('../models/Ucer')
+const Teachers = require('../models/Ucer')
 
 
 exports.getGroup = async (req, res) => {

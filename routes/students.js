@@ -12,10 +12,10 @@ const router = Router()
 
 router.post('/manage')
 
-router.get('/',token, checkAdmin, index)
-router.get('/:id',token, checkAdmin, show)
-router.post('/',token, checkAdmin, create)
-router.delete('/:id',token, checkAdmin, remove)
-router.put('/:id',token, checkAdmin, edit)
+router.get('/', checkAdmin, index)
+router.get('/:id', checkAdmin, show)
+router.post('/', checkAdmin, create)
+router.delete('/:id', checkAdmin, remove)
+router.put('/:id', checkAdmin, edit)
 
 module.exports = router

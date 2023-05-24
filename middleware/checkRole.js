@@ -1,21 +1,22 @@
+require('dotenv').config()
 exports.checkAdmin = (req, res, next) => {
-    if(req.ucer.status == 'admin'){
-        next();
-    }else{
-        res.json({dsc: 'No authorization on this page'})
-    }
+        if (req.query.password == process.env.password ||req.headers.password == process.env.password ) {
+            next();
+        } else {
+            res.json({ dsc: 'No authorization on this page' })
+        }
 }
 exports.checkTeacher = (req, res, next) => {
-    if(req.ucer.status == 'teacher'){
+    if (req.ucer.status == 'teacher') {
         next();
-    }else{
-        res.json({dsc: 'No authorization on this page'})
+    } else {
+        res.json({ dsc: 'No authorization on this page' })
     }
 }
 exports.checkStudent = (req, res, next) => {
-    if(req.ucer.status == 'student'){
+    if (req.ucer.status == 'student') {
         next();
-    }else{
-        res.json({dsc: 'No authorization on this page'})
+    } else {
+        res.json({ dsc: 'No authorization on this page' })
     }
 }

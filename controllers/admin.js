@@ -1,3 +1,3 @@
 exports.admin = (req, res) => {
-    res.json('Admin!')
+            res.json({message:'welcome admin'})
 }

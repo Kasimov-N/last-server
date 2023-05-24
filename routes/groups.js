@@ -10,10 +10,10 @@ const { token } = require('../middleware/token')
 const { checkAdmin } = require('../middleware/checkRole')
 const router = Router()
 
-router.get('/',token, checkAdmin, index)
-router.get('/:id',token, checkAdmin, show)
-router.post('/',token, checkAdmin, create)
-router.delete('/',token, checkAdmin, remove)
-router.put('/',token, checkAdmin, update)
+router.get('/', checkAdmin, index)
+router.get('/:id', checkAdmin, show)
+router.post('/', checkAdmin, create)
+router.delete('/', checkAdmin, remove)
+router.put('/', checkAdmin, update)
 
 module.exports = router

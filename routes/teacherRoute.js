@@ -9,7 +9,7 @@ const { checkTeacher } = require('../middleware/checkRole')
 const route = Router()
 
 
-route.get('/', (req, res) =>{
+route.get('/',token, (req, res) =>{
     res.json({title: "teacher"})
 } )
 route.get('/group/:id',token, checkTeacher, getGroup)
