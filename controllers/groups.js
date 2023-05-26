@@ -8,10 +8,10 @@ exports.index = async (req, res) => {
     }
 }
 exports.show = async (req, res) => {
-    const data = await Teachers.findById(req.query.idTeacher).select({group: {$elemMatch: {_id: req.params.id}}})
+    const data = await Teachers.findById(req.query.idTeacher).select({ group: { $elemMatch: { _id: req.params.id } } })
     if (data) {
         res.json({ title: 'Special group', data })
-    }else{
+    } else {
         res.json({ title: 'Xato' })
     }
 }
@@ -37,29 +37,30 @@ exports.create = async (req, res) => {
 }
 exports.remove = async (req, res) => {
     if (req.query.idTeacher && req.query.idGroup) {
-        const data = await Teachers.findByIdAndUpdate(req.query.idTeacher, { $pull: { group: { _id :req.query.idGroup}}})
+        const data = await Teachers.findByIdAndUpdate(req.query.idTeacher, { $pull: { group: { _id: req.query.idGroup } } })
         res.json({ title: 'Group Deleted' })
     }
 }
 exports.update = async (req, res) => {
     const { title, day, time } = req.body;
-    if(req.query.idTeacher && req.query.idGroup){
-        if(title || day || time){
-            const data = await Teachers.findOneAndUpdate(
-                {
-                    _id: req.query.idTeacher,
-                    "group._id": req.query.IdGroup   
-                }, 
-                {
+    if (!req.query.idTeacher && !req.query.idGroup) res.json({ title: "Id is not defined" })
+    if (title || day || time) {
+        const data = await Teachers.findOneAndUpdate(
+            {
+                _id: req.query.idTeacher,
+                "group._id": req.query.idGroup
+            },
+            {
                 $set: {
                     "group.$": { ...req.body, _id: req.query.idGroup }
                 }
             })
-            if (data) {
-                res.json({ title: 'Group updated', data })
-            } else {
-                res.json({ title: 'Xatolik' })
-            }
+        if (data) {
+            res.json({ title: 'Group updated', data })
+        } else {
+            res.json({ title: 'Xatolik' })
         }
+    }else{
+        res.json({ title: 'Ma`lumot yo`q' })
     }
 }

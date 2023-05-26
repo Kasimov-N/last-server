@@ -6,7 +6,6 @@ const {
     remove,
     edit
  } = require('../controllers/teachers')
-const { token } = require('../middleware/token')
 const { checkAdmin } = require('../middleware/checkRole')
 const router = Router()
 

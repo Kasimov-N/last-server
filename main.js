@@ -32,7 +32,7 @@ app.use('/admin/students', require('./routes/students'))
 app.use('/admin/groups', require('./routes/groups'))
 //teacher
 app.use('/Teacher', require('./routes/teacherRoute'))
-//student
+//student 
 app.use('/Student', require('./routes/studentRoute'))
 
 

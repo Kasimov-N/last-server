@@ -2,7 +2,7 @@ const Students = require("../models/Ucer")
 const Teachers = require("../models/Ucer")
 
 exports.index = async (req, res) => {
-    const data = await Students.find({})
+    const data = await Students.find({status: "student"})
     if (data) {
         res.json({
             title: 'All students',
