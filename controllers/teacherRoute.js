@@ -1,6 +1,15 @@
 const Students = require('../models/Ucer')
 const Teachers = require('../models/Ucer')
 
+exports.getAllGroup = async (req, res) => {
+    try {
+        const data = await Teachers.findById(req.ucer.id, ["group"])
+        res.json({ data })
+    }
+    catch (err) {
+        res.json({ eror: 'Bunday o`qituvchi mavjud emas' })
+    }
+}
 
 exports.getGroup = async (req, res) => {
     try {

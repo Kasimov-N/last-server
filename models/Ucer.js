@@ -30,7 +30,7 @@ module.exports = model('ucer', new Schema({
             },
             students:{
                 type: [Schema.Types.ObjectId],
-                ref: 'student'
+                ref: 'ucer'
             }
         }
     ],

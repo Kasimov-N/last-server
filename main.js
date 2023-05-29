@@ -26,14 +26,14 @@ app.use(express.urlencoded({ extended: true}));
 app.use('/', require('./routes/index'))
 app.use('/auth', require('./routes/auth') )
 //admin
-app.use('/admin', require('./routes/admin'))
-app.use('/admin/teachers', require('./routes/teachers'))
-app.use('/admin/students', require('./routes/students'))
-app.use('/admin/groups', require('./routes/groups'))
+app.use('/admin', require('./routes/admin/admin'))
+app.use('/admin/teachers', require('./routes/admin/teachers'))
+app.use('/admin/students', require('./routes/admin/students'))
+app.use('/admin/groups', require('./routes/admin/groups'))
 //teacher
-app.use('/Teacher', require('./routes/teacherRoute'))
+app.use('/Teacher', require('./routes/teacher/teacherRoute'))
 //student 
-app.use('/Student', require('./routes/studentRoute'))
+app.use('/Student', require('./routes/student/studentRoute'))
 
 
 

@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt')
 const Students = require("../models/Ucer")
 const Teachers = require("../models/Ucer")
 
@@ -20,16 +21,17 @@ exports.show = async (req, res) => {
         })
     }
 }
-exports.create = (req, res) => {
+exports.create = async (req, res) => {
     let { firstName, lastName, email, phoneNumber, ParentsPhoneNumber, password } = req.body
     if (firstName && lastName && email && phoneNumber && ParentsPhoneNumber && password) {
+        const hash = await bcrypt.hash(password, 12);
         let student = new Students({
             firstName,
             lastName,
             email,
             phoneNumber,
             ParentsPhoneNumber,
-            password
+            password: hash,
         })
         student.save()
             .then(data => {
