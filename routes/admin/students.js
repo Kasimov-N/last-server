@@ -4,13 +4,14 @@ const {
     create,
     show,
     remove,
-    edit
+    edit,
+    addStudentToGroup
 } = require('../../controllers/students')
 const { token } = require('../../middleware/token')
 const { checkAdmin } = require('../../middleware/checkRole')
 const router = Router()
 
-router.post('/manage')
+router.post('/manage', addStudentToGroup)
 
 router.get('/', checkAdmin, index)
 router.get('/:id', checkAdmin, show)

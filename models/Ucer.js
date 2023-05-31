@@ -1,7 +1,8 @@
 const {model, Schema} = require('mongoose')
 
 module.exports = model('ucer', new Schema({
-    firstName: String,
+    firstName: String,firstName: String,
+    lastName: String,
     lastName: String,
     email: String,
     phoneNumber: Number,
